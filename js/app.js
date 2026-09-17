@@ -1,5 +1,5 @@
 /* CIWARA MÉDIAS V6 — configuration réelle uniquement. */
-const RADIO_STREAM_URL = "http://ciwarafm.radiostream321.com/";
+const RADIO_STREAM_URL = "https://stream.zeno.fm/empfvkwmxkyuv";
 const AUDIO = document.getElementById("radioAudio");
 const playButtons = document.querySelectorAll("[data-play]");
 const status = document.getElementById("status");
