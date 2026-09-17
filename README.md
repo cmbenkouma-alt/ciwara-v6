@@ -18,18 +18,35 @@ Le dépôt historique `cmbenkouma-alt/Ciwaramedias` n'est pas utilisé pour cett
 - `assets/icons/` — favicon
 - `assets/audio/` — podcasts/replays à ajouter
 - `news.json` — données d'actualités statiques
-- `CNAME` — `ciwara-medias.ml`
 - `.github/workflows/deploy.yml` — publication GitHub Pages vers `gh-pages`
 
-## Flux radio retrouvé
+## Flux radio V6
 
-L'ancien fichier JavaScript contient comme page/flux de direct : `http://ciwarafm.radiostream321.com/` et une tentative HTTPS du même hôte. La V6 utilise l'URL HTTP retrouvée, sans inventer de nouvelle URL.
+La V6 utilise le flux audio fourni pour le projet : `https://stream.zeno.fm/empfvkwmxkyuv`.
 
-Si ce flux est remplacé par un flux audio direct compatible `<audio>`, modifier uniquement `RADIO_STREAM_URL` dans `js/app.js`.
+La constante `RADIO_STREAM_URL` se trouve dans `js/app.js`. Le navigateur doit autoriser la lecture du flux pour que le lecteur démarre.
+
+## Prévisualisation GitHub Pages
+
+La V6 est préparée pour une prévisualisation indépendante du site de production.
+
+1. Ouvrir **Settings → Pages** du dépôt `ciwara-v6`.
+2. Choisir **Deploy from a branch**.
+3. Sélectionner la branche **`gh-pages`** et le dossier **`/ (root)`**.
+4. Enregistrer.
+5. Prévisualiser sur : `https://cmbenkouma-alt.github.io/ciwara-v6/`
+
+Le workflow publie automatiquement `main` vers `gh-pages` à chaque push sur `main`.
+
+### Domaine de production
+
+Aucun `CNAME` n'est publié pendant la phase de prévisualisation. C'est volontaire : `ciwara-medias.ml` reste attaché à l'ancien site tant que la V6 n'est pas validée.
+
+Ne modifier **aucun DNS** et ne configurer **aucun domaine personnalisé** pour la V6 à ce stade.
 
 ## Éléments à configurer
 
-Les éléments suivants ne disposaient pas d'une ressource fiable et exploitable dans l'ancien dépôt :
+Les éléments suivants restent volontairement identifiés `À CONFIGURER` tant qu'une donnée officielle n'est pas disponible :
 
 - logo image réel dans `assets/images/`
 - photos des animateurs/journalistes
@@ -41,23 +58,11 @@ Les éléments suivants ne disposaient pas d'une ressource fiable et exploitable
 - flux RSS réel si une autre source doit être utilisée
 - contenu d'un éventuel back-office
 
-Ils sont volontairement marqués `À CONFIGURER` dans l'interface au lieu d'être remplacés par des données fictives.
-
-## GitHub Pages
-
-1. Ouvrir **Settings → Pages** du dépôt `ciwara-v6`.
-2. Vérifier que le déploiement est autorisé par GitHub Actions.
-3. Le workflow `.github/workflows/deploy.yml` publie `main` vers `gh-pages`.
-4. Le fichier `CNAME` est conservé dans la publication.
-5. Ne pas modifier le DNS pendant cette étape de construction.
-
-## Domaine
-
-Le projet contient `CNAME` avec `ciwara-medias.ml`. Le domaine de production historique doit rester inchangé tant que la V6 n'est pas validée. Une bascule DNS/Pages ne doit être faite qu'après validation complète de la V6.
+Aucune donnée fictive n'est utilisée pour compléter ces éléments.
 
 ## Actualités
 
-`news.json` est vide par sécurité. Exemple de structure à remplir avec des informations réelles :
+`news.json` est vide par sécurité. Il peut être rempli avec des informations réelles selon cette structure :
 
 ```json
 {
@@ -72,8 +77,8 @@ Le projet contient `CNAME` avec `ciwara-medias.ml`. Le domaine de production his
 }
 ```
 
-## Images
+## Images et médias
 
-Le dépôt historique ne contient pas de dossier d'images exploitable dans son arbre Git actuel. La V6 ne télécharge donc aucune image tierce sans autorisation.
+Ajoutez uniquement les fichiers dont vous disposez ou dont vous avez l'autorisation d'utilisation dans `assets/images/` et `assets/audio/`.
 
-Ajoutez les fichiers réels dans `assets/images/` puis référencez-les depuis le HTML ou le flux d'actualités.
+Le dépôt V6 ne modifie aucun fichier du site historique.
